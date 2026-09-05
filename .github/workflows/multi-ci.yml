@@ -1,0 +1,22 @@
+name: Day 1 CI
+
+on:
+  push:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Validate"
+
+  test:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Test"
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Build"
