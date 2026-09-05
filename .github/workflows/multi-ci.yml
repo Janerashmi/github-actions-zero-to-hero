@@ -7,13 +7,15 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
+      - name: Create file
+        run: echo "created by validate" > validate.txt
 
   test:
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Test"
+      - name: Read file
+        run: cat validate.txt
 
   build:
     needs: test
