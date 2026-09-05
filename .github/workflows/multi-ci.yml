@@ -7,7 +7,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Validate"
+      - run: exit 1
 
   test:
     needs: validate
