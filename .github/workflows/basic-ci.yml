@@ -8,6 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Environment information
+        run: |
+          echo "User:"
+          whoami
+
+          echo "Home:"
+          echo $HOME
+
+          echo "Workspace:"
+          echo $GITHUB_WORKSPACE
+
       - name: Checkout
         uses: actions/checkout@v6
 
