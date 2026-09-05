@@ -1,0 +1,26 @@
+name: Day 1 CI
+
+on:
+  push:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Runner information
+        run: |
+          echo "Operating system:"
+          uname -a
+
+      - name: Current directory
+        run: pwd
+
+      - name: Repository files
+        run: ls -la
+
+      - name: Validate
+        run: echo "Validation successful"
