@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
+          cache: pip
 
       - name: Show Python version
         run: python --version
@@ -33,3 +34,13 @@ jobs:
       - name: Run tests
         run: |
           python3 -m pytest
+
+      - name: Generate test report
+        run: |
+          pytest --junitxml=test-results-${{ matrix.python-version }}.xml
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.python-version }}
+          path: test-results-${{ matrix.python-version }}.xml
